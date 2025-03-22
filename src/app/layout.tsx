@@ -1,15 +1,23 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+//import { Roboto } from 'next/font/google'
+import localFont from "next/font/local";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+//const roboto = Roboto({ subsets: ['vietnamese'], weight: ['100', '200', '300'] })
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const myFont = localFont({
+  src: [
+    {
+      path: "/Roboto-Thin.ttf",
+      weight: "100",
+    },
+    {
+      path: "/Roboto-Regular.ttf",
+      weight: "400",
+    },
+  ],
+  display: "swap",
+  variable: "--font-geist-sans",
 });
 
 export const metadata: Metadata = {
@@ -23,21 +31,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <div>
-          <link rel="preconnect" href="https://fonts.googleapis.com" />
-          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
-          <link
-            href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap"
-            rel="stylesheet"
-          />
-        </div>
-      </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
+      <body className={`  ${myFont.variable} antialiased`}>{children}</body>
     </html>
   );
 }

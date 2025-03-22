@@ -18,7 +18,7 @@ const config = {
         },
         extend: {
             fontFamily: {
-                sans: ['var(--font-roboto)']
+                sans: ['var(--font-geist-sans)']
             },
             colors: {
                 border: 'hsl(var(--border))',
